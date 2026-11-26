@@ -21,11 +21,6 @@ class Vehiculo:
             return True # Trayecto realizado
         else:
             return False # Batería insuficiente: no se mueve
-        
-    def obtener_estado(self) -> str:
-        """Devuelve una ficha legible con la telemetría del vehículo."""
-        return f"[{self.matricula}] {self.modelo} | Batería: {self.nivel_bateria:.1f}% | Total: {self.kilometros_totales} km"
-    
     
     def recargar(self, energia_kwh: float) -> float:
         porcentaje_recarga = (energia_kwh / self.capacidad_kwh) * 100.0
