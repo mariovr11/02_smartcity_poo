@@ -28,16 +28,11 @@ class Vehiculo:
     
     
     def recargar(self, energia_kwh: float) -> float:
-        """Simula un trayecto urbano. Consume 0.15 kWh por cada km recorrido."""
-        porcentaje_recargado = (energia_kwh / self.capacidad_kwh) * 100.0
-
-        # Comprobamos si la batería actual cubre el consumo
-        if self.nivel_bateria > 100.0
+        porcentaje_recarga = (energia_kwh / self.capacidad_kwh) * 100.0
+        self.nivel_bateria += porcentaje_recarga
+        if self.nivel_bateria > 100.0:
             self.nivel_bateria = 100.0
-            self.kilometros_totales += distancia_km
-            return True # Trayecto realizado
-        else:
-            return False # Batería insuficiente: no se mueve
+        return self.nivel_bateria
 
     def obtener_estado(self) -> str:
         """Devuelve una ficha legible con la telemetría del vehículo."""
