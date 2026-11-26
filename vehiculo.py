@@ -32,3 +32,18 @@ class Vehiculo:
     def obtener_estado(self) -> str:
         """Devuelve una ficha legible con la telemetría del vehículo."""
         return f"[{self.matricula}] {self.modelo} | Batería: {self.nivel_bateria:.1f}% | Total: {self.kilometros_totales} km"
+
+        # En __init__: inicializamos el atributo protegido con guion bajo
+self._nivel_bateria: float = 100.0
+
+@property
+def nivel_bateria(self) -> float:
+    """Getter: Devuelve el porcentaje de batería actual."""
+    return self._nivel_bateria
+
+@nivel_bateria.setter
+def nivel_bateria(self, nuevo_nivel: float) -> None:
+    """Setter: Valida que el nivel se encuentre siempre en el rango [0.0, 100.0]."""
+    if nuevo_nivel < 0.0 or nuevo_nivel > 100.0:
+        raise ValueError(f"Nivel de batería inválido: {nuevo_nivel}%. Debe estar entre 0 y 100.")
+    self._nivel_bateria = nuevo_nivel
